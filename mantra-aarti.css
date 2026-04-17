@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Cinzel:wght@400;600&family=Lato:wght@300;400&display=swap');
+
+/* ── Variables ── */
+:root {
+  --saffron:     #E8701A;
+  --deep-saffron:#C45A10;
+  --gold:        #F5C842;
+  --cream:       #FDF6E3;
+  --dark-brown:  #2C1A0E;
+  --mid-brown:   #5C3317;
+  --text:        #1E0F05;
+  --muted:       #7A5C3A;
+  --divider:     #E2C89A;
+  --card-bg:     #FFFBF2;
+  --shadow:      rgba(44,26,14,0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--cream);
+  color: var(--text);
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse at 15% 15%, rgba(232,112,26,0.05) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 85%, rgba(245,200,66,0.07) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Header ── */
+header {
+  background: linear-gradient(135deg, var(--dark-brown), var(--mid-brown) 60%, #7A3A10);
+  color: var(--cream);
+  padding: 28px 20px 24px;
+  border-bottom: 3px solid var(--gold);
+  position: relative;
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg, transparent, transparent 30px,
+    rgba(245,200,66,0.03) 30px, rgba(245,200,66,0.03) 31px
+  );
+}
+.header-inner {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+.back-link {
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+  flex-shrink: 0;
+  transition: opacity 0.2s;
+}
+.back-link:hover { opacity: 1; }
+.header-titles { flex: 1; text-align: center; }
+.header-om {
+  font-family: 'Tiro Devanagari Hindi', serif;
+  font-size: 2rem;
+  color: var(--gold);
+  display: block;
+  animation: glow 3s ease-in-out infinite alternate;
+}
+@keyframes glow {
+  from { text-shadow: 0 2px 10px rgba(245,200,66,0.3); }
+  to   { text-shadow: 0 2px 22px rgba(245,200,66,0.7), 0 0 36px rgba(232,112,26,0.3); }
+}
+header h1 {
+  font-family: 'Tiro Devanagari Hindi', serif;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 400;
+  color: var(--cream);
+}
+header .subtitle {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: rgba(253,246,227,0.6);
+  margin-top: 4px;
+}
+
+/* ── Main ── */
+main {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Script Toggle ── */
+.toggle-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin: 0 auto 28px;
+  background: var(--card-bg);
+  border: 1px solid var(--divider);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+.toggle-btn {
+  padding: 10px 28px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.toggle-btn.active {
+  background: linear-gradient(135deg, var(--saffron), var(--deep-saffron));
+  color: white;
+}
+.toggle-btn:first-child { border-right: 1px solid var(--divider); }
+
+/* ── Intro box ── */
+.intro-box {
+  background: var(--card-bg);
+  border: 1px solid var(--divider);
+  border-left: 4px solid var(--saffron);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-bottom: 28px;
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.9;
+}
+.intro-box strong { color: var(--dark-brown); font-weight: 400; }
+
+/* ── Ad unit ── */
+.ad-unit {
+  background: rgba(162,98,42,0.06);
+  border: 1px dashed var(--divider);
+  border-radius: 8px;
+  padding: 14px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  margin: 28px 0;
+}
+
+/* ── Divider ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+  color: var(--divider);
+}
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--divider), transparent);
+}
+.divider span { font-size: 1rem; color: var(--saffron); }
+
+/* ── Content container ── */
+.content-container {
+  background: var(--card-bg);
+  border: 1px solid var(--divider);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px var(--shadow);
+}
+.content-section {
+  padding: 28px 32px;
+  border-bottom: 1px solid var(--divider);
+}
+.content-section:last-child { border-bottom: none; }
+
+.section-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--divider), transparent);
+}
+
+/* ── Prayer text ── */
+.hindi-text {
+  font-family: 'Tiro Devanagari Hindi', serif;
+  font-size: 1.15rem;
+  line-height: 2.2;
+  color: var(--dark-brown);
+  text-align: center;
+}
+.hindi-text p { margin-bottom: 4px; }
+
+.roman-text {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  line-height: 2.2;
+  color: var(--dark-brown);
+  text-align: center;
+  font-style: italic;
+  display: none;
+}
+.roman-text p { margin-bottom: 4px; }
+
+body.roman-mode .hindi-text { display: none; }
+body.roman-mode .roman-text { display: block; }
+
+/* ── Meaning ── */
+.meaning-text {
+  font-size: 0.88rem;
+  color: var(--muted);
+  font-style: italic;
+  text-align: center;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--divider);
+  line-height: 1.9;
+}
+
+/* ── Verse badge ── */
+.verse-num {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--saffron), var(--deep-saffron));
+  color: white;
+  font-size: 0.65rem;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.1em;
+  padding: 2px 8px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+/* ── Aarti specific — repeat lines styling ── */
+.aarti-refrain {
+  background: linear-gradient(135deg, rgba(232,112,26,0.07), rgba(245,200,66,0.1));
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 16px 0;
+  border-left: 3px solid var(--gold);
+}
+
+/* ── Benefits box ── */
+.benefits-box {
+  background: linear-gradient(135deg, rgba(232,112,26,0.06), rgba(245,200,66,0.08));
+  border: 1px solid var(--divider);
+  border-radius: 10px;
+  padding: 18px 24px;
+  margin-top: 24px;
+}
+.benefits-box h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--saffron);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.benefits-box p {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.9;
+}
+
+/* ── Footer ── */
+footer {
+  background: var(--dark-brown);
+  color: rgba(253,246,227,0.6);
+  text-align: center;
+  padding: 20px;
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  border-top: 2px solid var(--mid-brown);
+}
+footer a { color: var(--gold); text-decoration: none; }
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .content-section { padding: 20px 16px; }
+  .hindi-text, .roman-text { font-size: 1rem; }
+  .header-inner { flex-direction: column; text-align: center; gap: 8px; }
+  .toggle-btn { padding: 10px 18px; font-size: 0.72rem; }
+}
